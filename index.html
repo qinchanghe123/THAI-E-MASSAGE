@@ -1,1 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="THAI E MASSAGE in College Station, TX — a calm, private massage experience designed for relaxation and restoration." />
+  <title>THAI E MASSAGE | College Station, TX</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #10251f;
+      --green-2: #19382e;
+      --cream: #f6f0e6;
+      --ivory: #fffdf8;
+      --gold: #c7a86b;
+      --gold-light: #e5d0a0;
+      --brown: #665848;
+      --text: #20231f;
+      --muted: #77746c;
+      --line: rgba(199,168,107,.28);
+      --shadow: 0 24px 70px rgba(13,35,28,.12);
+      --radius: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--ivory);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: .76rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      line-height: 1.05;
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 700px;
+      font-size: 1rem;
+    }
+
+    .section {
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 28px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #17231e;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: .3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: var(--gold-light);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+    }
+
+    /* NAV */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: .3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(12,30,25,.93);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      color: #fff;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      letter-spacing: .08em;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      color: rgba(255,255,255,.88);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 0;
+      color: #fff;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: grid;
+      align-items: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-position: center;
+      background-size: cover;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 1.5s ease, transform 7s ease;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(7,23,18,.86), rgba(7,23,18,.48) 55%, rgba(7,23,18,.3)),
+        linear-gradient(0deg, rgba(7,23,18,.5), transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 80px;
+      max-width: 830px;
+    }
+
+    .hero h1 {
+      font-size: clamp(4rem, 9vw, 8rem);
+      letter-spacing: -.02em;
+    }
+
+    .hero p {
+      margin: 22px 0 34px;
+      max-width: 650px;
+      color: rgba(255,255,255,.82);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .trust-strip {
+      position: absolute;
+      z-index: 3;
+      bottom: 0;
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,.14);
+      background: rgba(8,27,21,.35);
+      backdrop-filter: blur(12px);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .trust-item {
+      padding: 24px 20px;
+      border-right: 1px solid rgba(255,255,255,.12);
+      text-align: center;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--cream);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(45px, 8vw, 100px);
+      align-items: center;
+    }
+
+    .about-images {
+      display: grid;
+      grid-template-columns: 1fr .85fr;
+      gap: 14px;
+      align-items: end;
+    }
+
+    .about-images img {
+      height: 520px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .about-images img:last-child {
+      height: 390px;
+      margin-bottom: -45px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin: 22px 0;
+    }
+
+    .feature-mini {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .feature-mini div {
+      padding: 20px 16px;
+      border-top: 1px solid var(--gold);
+    }
+
+    .feature-mini strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3rem;
+      color: var(--green);
+    }
+
+    .feature-mini span {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    /* EXPERIENCE */
+    .experience {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .experience .lead {
+      color: rgba(255,255,255,.65);
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 55px;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .experience-card {
+      padding: 38px 28px;
+      border-right: 1px solid rgba(255,255,255,.12);
+      transition: .3s ease;
+    }
+
+    .experience-card:hover {
+      background: rgba(255,255,255,.04);
+    }
+
+    .experience-card .number {
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+    }
+
+    .experience-card h3 {
+      font-size: 1.8rem;
+      margin: 40px 0 15px;
+    }
+
+    .experience-card p {
+      color: rgba(255,255,255,.6);
+      font-size: .9rem;
+    }
+
+    /* SERVICES */
+    .services-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+      margin-bottom: 52px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .service-card {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid rgba(16,37,31,.09);
+      box-shadow: 0 18px 50px rgba(25,42,34,.07);
+    }
+
+    .service-carousel {
+      height: 330px;
+      position: relative;
+      overflow: hidden;
+      background: #ddd5c8;
+    }
+
+    .service-carousel img {
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .service-carousel img.active {
+      opacity: 1;
+    }
+
+    .service-body {
+      padding: 30px;
+    }
+
+    .service-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: baseline;
+    }
+
+    .service-body h3 {
+      color: var(--green);
+      font-size: 2rem;
+    }
+
+    .price {
+      color: var(--gold);
+      font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      white-space: nowrap;
+    }
+
+    .service-body p {
+      color: var(--muted);
+      margin-top: 12px;
+      font-size: .92rem;
+    }
+
+    .service-meta {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid #eee8de;
+      font-size: .8rem;
+      color: var(--brown);
+    }
+
+    /* GALLERY */
+    .gallery {
+      background: var(--cream);
+    }
+
+    .gallery-grid {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-template-rows: 260px 260px;
+      gap: 14px;
+    }
+
+    .gallery-grid img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .gallery-grid img:first-child {
+      grid-row: span 2;
+    }
+
+    /* BOOKING */
+    .booking-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .location-card {
+      margin-top: 35px;
+      padding: 28px;
+      background: var(--green);
+      color: #fff;
+      border-radius: var(--radius);
+    }
+
+    .location-card small {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .location-card p {
+      margin-top: 9px;
+      color: rgba(255,255,255,.74);
+    }
+
+    .booking-form {
+      padding: 38px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: .74rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+      color: var(--brown);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #ded9d0;
+      border-radius: 12px;
+      padding: 14px 15px;
+      outline: 0;
+      background: #fffdf9;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-note {
+      margin: 16px 0 22px;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    /* REVIEWS */
+    .reviews {
+      background: var(--green);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .reviews h2,
+    .reviews .eyebrow {
+      text-align: center;
+    }
+
+    .reviews-note {
+      text-align: center;
+      color: rgba(255,255,255,.55);
+      font-size: .78rem;
+      margin: 12px auto 40px;
+    }
+
+    .review-row {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      margin: 20px 0;
+      animation: marquee 48s linear infinite;
+    }
+
+    .review-row.reverse {
+      animation-direction: reverse;
+      animation-duration: 52s;
+    }
+
+    .review-card {
+      width: 360px;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      background: rgba(255,255,255,.055);
+    }
+
+    .review-card p {
+      color: rgba(255,255,255,.76);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.25rem;
+      line-height: 1.45;
+    }
+
+    .review-card span {
+      display: block;
+      margin-top: 18px;
+      color: var(--gold);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    /* FAQ */
+    .faq-wrap {
+      max-width: 850px;
+      margin: 50px auto 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ded7cc;
+    }
+
+    .faq-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 24px 0;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      text-align: left;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      color: var(--green);
+    }
+
+    .faq-answer {
+      display: none;
+      padding-bottom: 24px;
+      color: var(--muted);
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--cream);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 35px;
+    }
+
+    .contact-info {
+      padding: 42px;
+      border-radius: var(--radius);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .contact-info h2 {
+      font-size: 3rem;
+    }
+
+    .contact-info p {
+      margin: 18px 0;
+      color: rgba(255,255,255,.7);
+    }
+
+    .map {
+      min-height: 460px;
+      border: 0;
+      width: 100%;
+      border-radius: var(--radius);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #081813;
+      color: rgba(255,255,255,.62);
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-family: "Cormorant Garamond", serif;
+      color: #fff;
+      font-size: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: .8rem;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.09);
+      padding-top: 24px;
+      margin-top: 45px;
+      font-size: .72rem;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: absolute;
+        top: 82px;
+        left: 20px;
+        right: 20px;
+        padding: 25px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(11,32,25,.98);
+        border-radius: 18px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .trust-grid,
+      .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .booking-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid img:first-child {
+        grid-row: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .hero {
+        min-height: 900px;
+      }
+
+      .hero-content {
+        padding-bottom: 180px;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .trust-item {
+        padding: 16px 8px;
+        font-size: .65rem;
+      }
+
+      .about-images {
+        grid-template-columns: 1fr;
+      }
+
+      .about-images img,
+      .about-images img:last-child {
+        height: 370px;
+        margin: 0;
+      }
+
+      .feature-mini,
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-head {
+        display: block;
+      }
+
+      .service-carousel {
+        height: 260px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .gallery-grid img {
+        height: 280px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field-full {
+        grid-column: auto;
+      }
+
+      .booking-form,
+      .contact-info {
+        padding: 27px;
+      }
+
+      .review-card {
+        width: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a href="#home" class="brand">THAI E MASSAGE</a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#experience">Experience</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="#booking" class="btn">Book Now</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-slide active"
+      style="background-image:url('https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg')"></div>
+    <div class="hero-slide"
+      style="background-image:url('https://i.pinimg.com/736x/86/47/ef/8647ef5b51553a8e57ca32e6b2ec74f0.jpg')"></div>
+    <div class="hero-slide"
+      style="background-image:url('https://i.pinimg.com/1200x/6a/df/fe/6adffe5706bdce88dd2d2d0fc6875398.jpg')"></div>
+
+    <div class="container hero-content">
+      <div class="eyebrow">Massage & Relaxation · College Station</div>
+      <h1>A quieter way to unwind.</h1>
+      <p>
+        Step away from the pace of the day and settle into a calm, private setting
+        designed for comfort, relaxation and unhurried time for yourself.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#booking" class="btn">Book Your Visit</a>
+        <a href="#services" class="btn btn-outline">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-item">Quiet Rooms</div>
+        <div class="trust-item">Private Atmosphere</div>
+        <div class="trust-item">Thoughtful Comfort</div>
+        <div class="trust-item">Easy Booking</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container about-grid">
+      <div class="about-images reveal">
+        <img loading="lazy"
+          src="https://i.pinimg.com/736x/c0/e8/3f/c0e83fc3058518c785d6cfe1b15da601.jpg"
+          alt="Calm massage atmosphere">
+        <img loading="lazy"
+          src="https://i.pinimg.com/736x/51/25/ef/5125efc1d8af786696c07c8bd95452ab.jpg"
+          alt="Relaxing spa setting">
+      </div>
+
+      <div class="about-copy reveal">
+        <div class="eyebrow">About THAI E MASSAGE</div>
+        <h2>Space to relax. Time to reset.</h2>
+
+        <p>
+          THAI E MASSAGE offers a peaceful setting for guests who want to step away
+          from everyday tension and enjoy a more relaxed pace.
+        </p>
+
+        <p>
+          Our approach centers on a clean environment, comfortable treatment spaces,
+          privacy and a calm arrival-to-departure experience.
+        </p>
+
+        <div class="feature-mini">
+          <div>
+            <strong>Calm</strong>
+            <span>A quieter atmosphere</span>
+          </div>
+          <div>
+            <strong>Private</strong>
+            <span>Comfortable personal space</span>
+          </div>
+          <div>
+            <strong>Clean</strong>
+            <span>Thoughtfully maintained rooms</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <div class="eyebrow">The Experience</div>
+      <h2>A simple ritual for slowing down.</h2>
+      <p class="lead">
+        Every visit is designed around ease, privacy and a calm transition away
+        from the outside world.
+      </p>
+
+      <div class="experience-grid reveal">
+        <article class="experience-card">
+          <div class="number">01</div>
+          <h3>Calm Arrival</h3>
+          <p>Arrive, settle in and take a moment before your session begins.</p>
+        </article>
+
+        <article class="experience-card">
+          <div class="number">02</div>
+          <h3>Private Space</h3>
+          <p>A quiet environment designed for comfort and personal relaxation.</p>
+        </article>
+
+        <article class="experience-card">
+          <div class="number">03</div>
+          <h3>Mindful Details</h3>
+          <p>Soft surroundings and an uncluttered atmosphere help set a restful tone.</p>
+        </article>
+
+        <article class="experience-card">
+          <div class="number">04</div>
+          <h3>Restful Finish</h3>
+          <p>Leave yourself a little room after your session before returning to your day.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="services-head">
+        <div>
+          <div class="eyebrow">Services</div>
+          <h2>Choose your way to unwind.</h2>
+        </div>
+        <p class="lead">
+          Select from classic massage experiences designed for relaxation,
+          everyday tension and tired muscles.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- FOOT -->
+        <article class="service-card reveal">
+          <div class="service-carousel">
+            <img class="active" loading="lazy"
+              src="https://i.pinimg.com/1200x/6a/df/fe/6adffe5706bdce88dd2d2d0fc6875398.jpg"
+              alt="Foot reflexology">
+            <img loading="lazy"
+              src="https://i.pinimg.com/1200x/71/a4/b7/71a4b75a19fbadf33bc6dc340e91340c.jpg"
+              alt="Foot reflexology treatment">
+            <img loading="lazy"
+              src="https://i.pinimg.com/1200x/2b/85/42/2b8542fd0d099c9771bb5b332d6f51a9.jpg"
+              alt="Relaxing foot massage">
+          </div>
+          <div class="service-body">
+            <div class="service-topline">
+              <h3>Foot Reflexology</h3>
+              <span class="price">Call for Pricing</span>
+            </div>
+            <p>
+              A focused foot session ideal after long periods of standing, walking,
+              travel or simply when your feet deserve time to unwind.
+            </p>
+            <div class="service-meta">
+              Best for: tired feet · everyday fatigue · quiet relaxation
+            </div>
+          </div>
+        </article>
+
+        <!-- BODY WORK -->
+        <article class="service-card reveal">
+          <div class="service-carousel">
+            <img class="active" loading="lazy"
+              src="https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg"
+              alt="Body work massage">
+            <img loading="lazy"
+              src="https://i.pinimg.com/736x/4c/2b/cb/4c2bcb39fbc7189277e8e505c2e1bc8f.jpg"
+              alt="Body massage">
+            <img loading="lazy"
+              src="https://i.pinimg.com/736x/c0/e8/3f/c0e83fc3058518c785d6cfe1b15da601.jpg"
+              alt="Relaxing body work">
+          </div>
+          <div class="service-body">
+            <div class="service-topline">
+              <h3>Body Work</h3>
+              <span class="price">Call for Pricing</span>
+            </div>
+            <p>
+              A balanced full-body experience for guests looking to decompress,
+              relax tired areas and enjoy a slower, restorative pause.
+            </p>
+            <div class="service-meta">
+              Best for: general tension · full-body fatigue · relaxation
+            </div>
+          </div>
+        </article>
+
+        <!-- DEEP TISSUE -->
+        <article class="service-card reveal">
+          <div class="service-carousel">
+            <img class="active" loading="lazy"
+              src="https://i.pinimg.com/736x/86/47/ef/8647ef5b51553a8e57ca32e6b2ec74f0.jpg"
+              alt="Deep tissue massage">
+            <img loading="lazy"
+              src="https://i.pinimg.com/736x/a4/c5/f0/a4c5f0fb2704f75aa94a247e18a4af14.jpg"
+              alt="Focused deep tissue massage">
+            <img loading="lazy"
+              src="https://i.pinimg.com/736x/85/e4/e0/85e4e0455458e84ff5b39582cf45a340.jpg"
+              alt="Deep pressure massage">
+          </div>
+          <div class="service-body">
+            <div class="service-topline">
+              <h3>Deep Tissue Massage</h3>
+              <span class="price">Call for Pricing</span>
+            </div>
+            <p>
+              A more focused massage style for guests who prefer firmer,
+              deliberate pressure on areas that feel especially tight or fatigued.
+            </p>
+            <div class="service-meta">
+              Best for: persistent tightness · shoulders · back · active lifestyles
+            </div>
+          </div>
+        </article>
+
+        <!-- COUPLES -->
+        <article class="service-card reveal">
+          <div class="service-carousel">
+            <img class="active" loading="lazy"
+              src="https://i.pinimg.com/736x/ac/a6/69/aca669d5a5fe654a32f0f6b3c5138275.jpg"
+              alt="Couples massage">
+            <img loading="lazy"
+              src="https://i.pinimg.com/736x/8d/88/02/8d88021e4d32ed8abd1452b7f48ce00b.jpg"
+              alt="Massage experience for two">
+            <img loading="lazy"
+              src="https://i.pinimg.com/1200x/07/13/62/0713626b6e91eb53a1b7b60a3d0dfd8e.jpg"
+              alt="Relaxing couples massage setting">
+          </div>
+          <div class="service-body">
+            <div class="service-topline">
+              <h3>Couples Massage</h3>
+              <span class="price">Call for Pricing</span>
+            </div>
+            <p>
+              Share a relaxed massage experience with a partner, friend or loved one
+              while enjoying the same peaceful atmosphere together.
+            </p>
+            <div class="service-meta">
+              Best for: shared downtime · special occasions · relaxing together
+            </div>
+          </div>
+        </article>
+
+        <!-- CHAIR -->
+        <article class="service-card reveal">
+          <div class="service-carousel">
+            <img class="active" loading="lazy"
+              src="https://i.pinimg.com/736x/f1/ee/df/f1eedfc8c7b5322308d56bda63212a19.jpg"
+              alt="Chair massage">
+          </div>
+          <div class="service-body">
+            <div class="service-topline">
+              <h3>Chair Massage</h3>
+              <span class="price">Call for Pricing</span>
+            </div>
+            <p>
+              A convenient focused session suited to guests wanting attention around
+              the neck, shoulders and upper body without a full-length appointment.
+            </p>
+            <div class="service-meta">
+              Best for: busy schedules · shoulders · upper-body tension
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section gallery">
+    <div class="container">
+      <div class="eyebrow">Atmosphere</div>
+      <h2>Quiet by design.</h2>
+
+      <div class="gallery-grid reveal">
+        <img loading="lazy"
+          src="https://i.pinimg.com/736x/e6/0b/e7/e60be71086090d2d3f2737b2291242a9.jpg"
+          alt="Massage atmosphere">
+        <img loading="lazy"
+          src="https://i.pinimg.com/736x/d2/08/0e/d2080e371f664c11f134eb291883c1dc.jpg"
+          alt="Relaxation setting">
+        <img loading="lazy"
+          src="https://i.pinimg.com/736x/97/dc/96/97dc9699bc6c850ecd8776eaee3b7898.jpg"
+          alt="Calm massage environment">
+        <img loading="lazy"
+          src="https://i.pinimg.com/736x/4b/18/78/4b18785283d7086b596c4c44777599d1.jpg"
+          alt="Peaceful spa atmosphere">
+        <img loading="lazy"
+          src="https://i.pinimg.com/736x/c9/55/e0/c955e0563cc8cd9ef272677aa1e28f68.jpg"
+          alt="Relaxing wellness environment">
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="section" id="booking">
+    <div class="container booking-grid">
+      <div class="reveal">
+        <div class="eyebrow">Reservation</div>
+        <h2>Make time for yourself.</h2>
+        <p class="lead" style="margin-top:22px;">
+          Send a reservation request and confirm availability directly with the spa.
+        </p>
+
+        <div class="location-card">
+          <small>Visit Us</small>
+          <p>
+            707 Texas Ave Suite 100A<br>
+            College Station, TX 77840
+          </p>
+          <p style="font-size:.8rem;">
+            Please contact the business directly to confirm current hours,
+            availability and pricing.
+          </p>
+        </div>
+      </div>
+
+      <form class="booking-form reveal" id="bookingForm">
+        <div class="form-grid">
+
+          <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" required>
+          </div>
+
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" placeholder="Your phone number" required>
+          </div>
+
+          <div>
+            <label for="service">Service</label>
+            <select id="service" required>
+              <option value="">Choose a service</option>
+              <option>Foot Reflexology</option>
+              <option>Body Work</option>
+              <option>Deep Tissue Massage</option>
+              <option>Couples Massage</option>
+              <option>Chair Massage</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="time">Preferred Time</label>
+            <input id="time" type="datetime-local">
+          </div>
+
+          <div class="field-full">
+            <label for="notes">Notes</label>
+            <textarea id="notes" placeholder="Anything you'd like us to know?"></textarea>
+          </div>
+
+        </div>
+
+        <p class="form-note">
+          This website demo form does not transmit information to a booking system.
+          Connect it to your preferred reservation service before publishing.
+        </p>
+
+        <button class="btn" type="submit">Request Appointment</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews" id="reviews">
+    <div class="eyebrow">Guest Experience</div>
+    <h2>What a restful visit can feel like.</h2>
+    <p class="reviews-note">
+      Sample review copy for website layout. Replace with verified customer reviews before publishing.
+    </p>
+
+    <div class="review-row">
+      <div class="review-card"><p>“A calm space that made it easy to switch off and relax.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“The atmosphere felt peaceful, clean and pleasantly unhurried.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“A comfortable visit when I needed a little quiet time.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“The setting felt private and the overall experience was very relaxing.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“Simple, calm and exactly the kind of break I was looking for.”</p><span>Sample Guest Note</span></div>
+
+      <div class="review-card"><p>“A calm space that made it easy to switch off and relax.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“The atmosphere felt peaceful, clean and pleasantly unhurried.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“A comfortable visit when I needed a little quiet time.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“The setting felt private and the overall experience was very relaxing.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“Simple, calm and exactly the kind of break I was looking for.”</p><span>Sample Guest Note</span></div>
+    </div>
+
+    <div class="review-row reverse">
+      <div class="review-card"><p>“I appreciated the peaceful surroundings and uncomplicated experience.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“The whole visit had a quiet, comfortable rhythm.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“A relaxing environment for slowing down after a busy week.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“Clean, comfortable and easy to settle into.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“A pleasant atmosphere that helped the day feel a little lighter.”</p><span>Sample Guest Note</span></div>
+
+      <div class="review-card"><p>“I appreciated the peaceful surroundings and uncomplicated experience.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“The whole visit had a quiet, comfortable rhythm.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“A relaxing environment for slowing down after a busy week.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“Clean, comfortable and easy to settle into.”</p><span>Sample Guest Note</span></div>
+      <div class="review-card"><p>“A pleasant atmosphere that helped the day feel a little lighter.”</p><span>Sample Guest Note</span></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div style="text-align:center;">
+        <div class="eyebrow">FAQ</div>
+        <h2>Before your visit.</h2>
+      </div>
+
+      <div class="faq-wrap">
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            How early should I arrive?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            Arriving about 10 minutes early is a comfortable guideline, especially
+            for your first visit.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            Can I get a massage if I have an injury?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            If you have an injury, recent procedure or medical concern, check with
+            an appropriate healthcare professional first and inform the business
+            before your session.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            What is your cancellation policy?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            Please contact THAI E MASSAGE directly for the current cancellation and
+            rescheduling policy.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            Is there parking available?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            Parking availability may change. Please check the property signage or
+            contact the business before your visit for current parking information.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container contact-grid">
+
+      <div class="contact-info reveal">
+        <div class="eyebrow">Location</div>
+        <h2>Come unwind.</h2>
+
+        <p>
+          <strong>THAI E MASSAGE</strong><br><br>
+          707 Texas Ave Suite 100A<br>
+          College Station, TX 77840
+        </p>
+
+        <p>
+          Current phone number, business hours and service pricing can be added
+          here once confirmed.
+        </p>
+
+        <a
+          class="btn"
+          target="_blank"
+          rel="noopener"
+          href="https://www.google.com/maps/search/?api=1&query=707+Texas+Ave+Suite+100A+College+Station+TX+77840">
+          Get Directions
+        </a>
+      </div>
+
+      <iframe
+        class="map reveal"
+        title="THAI E MASSAGE location map"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=707%20Texas%20Ave%20Suite%20100A%20College%20Station%20TX%2077840&output=embed">
+      </iframe>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">THAI E MASSAGE</div>
+        <p>Quiet moments. Comfortable space. Time to unwind.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#booking">Booking</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Location</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © <span id="year"></span> THAI E MASSAGE ·
+      707 Texas Ave Suite 100A, College Station, TX 77840
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky navigation
+  const header = document.getElementById("header");
+
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 40);
+  });
+
+  // Mobile navigation
+  const menuBtn = document.getElementById("menuBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+  });
+
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => navLinks.classList.remove("open"));
+  });
+
+  // Hero carousel
+  const heroSlides = document.querySelectorAll(".hero-slide");
+  let heroIndex = 0;
+
+  setInterval(() => {
+    heroSlides[heroIndex].classList.remove("active");
+    heroIndex = (heroIndex + 1) % heroSlides.length;
+    heroSlides[heroIndex].classList.add("active");
+  }, 5500);
+
+  // Service image carousels
+  document.querySelectorAll(".service-carousel").forEach((carousel, index) => {
+    const images = carousel.querySelectorAll("img");
+
+    if (images.length <= 1) return;
+
+    let current = 0;
+
+    setInterval(() => {
+      images[current].classList.remove("active");
+      current = (current + 1) % images.length;
+      images[current].classList.add("active");
+    }, 4000 + index * 350);
+  });
+
+  // FAQ accordion
+  document.querySelectorAll(".faq-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const item = button.parentElement;
+      const isOpen = item.classList.toggle("open");
+
+      button.setAttribute("aria-expanded", isOpen);
+      button.querySelector("span").textContent = isOpen ? "−" : "+";
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+  // Demo booking form
+  document.getElementById("bookingForm").addEventListener("submit", event => {
+    event.preventDefault();
+    alert("Thank you. This demo form is ready to be connected to your booking system.");
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
